@@ -4,6 +4,6 @@
 </div>
 <div class="grid">
   <div class="seats" *ngFor="let s of seats; index as idx">
-    <app-seat [seatId]="idx" [matching]="-1"></app-seat>
+    <app-seat [seatId]="idx+1" [matching]="60"></app-seat>
   </div>
 </div>

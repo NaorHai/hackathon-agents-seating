@@ -2,8 +2,18 @@
   width: 30px;
   height: 30px;
   background: #ffffff;
-  border: black solid 1px;
+  border: black solid 3px;
   display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  vertical-align: middle;
+  padding: 20px;
+  margin: 5px;
+  float: left;
+}
+.content {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .match_Level_20{
