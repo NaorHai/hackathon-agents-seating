@@ -1,8 +1,8 @@
 <div class="example-boundary">
-    <div *ngFor="let dropItem of seats; let i = index" 
-        class="example-box seat {{class}}" 
-        cdkDragBoundary=".example-boundary" 
-        (mouseup)="drop($event, i)" 
+    <div *ngFor="let dropItem of seats; let i = index"
+        class="example-box seat {{class}}"
+        cdkDragBoundary=".example-boundary"
+        (mouseup)="drop($event, i)"
         (mousedown)="onDrag($event)"
         [ngStyle]="{'left.px':dropItem.x, 'top.px':dropItem.y}"
         cdkDrag>

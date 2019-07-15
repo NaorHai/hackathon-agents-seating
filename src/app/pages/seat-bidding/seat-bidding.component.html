@@ -1,0 +1,20 @@
+<button mat-button (click)="layoutService.save(seats)">Save</button>
+<ng-template #popContent>Hello, <b>Vital</b>!</ng-template>
+<ng-template #popTitle>Fancy <b>content!!</b></ng-template>
+<div class="seat-bidding">
+  <div
+    class="seat btn btn-outline-secondary mr-2"
+    placement="auto"
+    triggers="mouseenter:mouseleave"
+    [ngbPopover]="popContent"
+    [popoverTitle]="popTitle"
+    *ngFor="let seat of seats"
+    ngClass="{{seat.class}}"
+    [ngStyle]="{
+      'top': seat.position.y + 'px',
+      'left': seat.position.x + 'px'
+    }"
+    (click)="selectSeat(seat)">
+    <span>{{seat.id}}</span>
+  </div>
+</div>
