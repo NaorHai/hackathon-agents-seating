@@ -4,6 +4,11 @@
 </div>
 <div class="grid">
   <div class="seats" *ngFor="let s of seats; index as idx">
+    <app-seat [seatId]="idx+1" [matching]="20"></app-seat>
+    <app-seat [seatId]="idx+1" [matching]="40"></app-seat>
     <app-seat [seatId]="idx+1" [matching]="60"></app-seat>
+    <app-seat [seatId]="idx+1" [matching]="80"></app-seat>
+    <app-seat [seatId]="idx+1" [matching]="90"></app-seat>
+    <app-seat [seatId]="idx+1" [matching]="100"></app-seat>
   </div>
 </div>

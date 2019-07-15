@@ -10,17 +10,28 @@
   padding: 20px;
   margin: 5px;
   float: left;
+  -webkit-animation-name: fill;
+  -webkit-animation-duration: 2s;
 }
+
+@keyframes fill {
+  from {background-color: #fff;}
+}
+
+.seat:hover {
+  filter: brightness(85%);
+}
+
 .content {
   display: inline-block;
   margin: 0 auto;
 }
 
 .match_Level_20{
-  background: #ccffdd;
+  background: #aaffa8;
 }
 
-.match_Level_40{
+.match_Level_40 {
   background: #66ff99;
 }
 
@@ -38,5 +49,5 @@
 }
 
 .unavailable{
-  background: #9e9e9e;
+  background: #dddddd;
 }
