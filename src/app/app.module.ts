@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 import {DragDropModule} from '@angular/cdk/drag-drop' 
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {DragAndDropComponent} from './drag-and-drop/drag-and-drop.component'
 import { AppComponent } from './app.component';
-import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { SeatComponent } from './seat/seat.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    SeatComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     DragDropModule,
     NoopAnimationsModule,
     BrowserAnimationsModule
