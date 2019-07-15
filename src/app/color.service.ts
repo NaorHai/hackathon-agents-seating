@@ -10,7 +10,7 @@ export class ColorService {
 
   getColor(match, employee) : string{
     if (employee)
-      return "selected-seat";
+      return "unavailable";
 
     if (match > 90)
       return "match_Level_90";

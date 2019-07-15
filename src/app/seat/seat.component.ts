@@ -1,3 +1,4 @@
+// @ts-ignore
 import {Component, Input, OnInit} from '@angular/core';
 import {ColorService} from '../color.service';
 

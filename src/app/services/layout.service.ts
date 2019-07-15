@@ -8,16 +8,27 @@ export class LayoutService {
 
   layout:Seat[] = [];
   constructor() {
-    let rawSeats:any[] = localStorage.getItem('layout');
-    let random_boolean = Math.random() >= 0.5;
-    rawSeats.forEach(seat => this.layout.push(new Seat(seat.id,
-                                                new Position(seat.position.x, seat.position.y),
-                                                random_boolean? "1" : undefined,
-                                                random_boolean ? undefined : this.getRandomMatch())));
+    let rawSeats:any[] = JSON.parse(localStorage.getItem('layout'));
+
+    if (rawSeats) {
+      let random_boolean = Math.random() >= 0.5;
+      rawSeats.forEach(seat => this.layout.push(new Seat(seat.id,
+        new Position(seat.position.x, seat.position.y),
+        seat.employeeId,
+        seat.matching)));
+    }
+    else {
+      this.layout = [
+        new Seat(1, new Position(0,0), undefined, 50),
+        new Seat(1, new Position(50,50), "1", undefined),
+        new Seat(1, new Position(75,75), undefined, 75),
+        new Seat(1, new Position(90,90), "2", undefined),
+      ]
+    }
   }
 
   save(layout:Seat[]){
-    localStorage.setItem('layout', layout.toString());
+    localStorage.setItem('layout', JSON.stringify(layout));
   }
 
   load():Seat[]{

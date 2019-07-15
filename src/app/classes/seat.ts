@@ -12,17 +12,13 @@ export class Seat {
   id:number;
   position:Position;
   employeeId:string;
-  match:number;
+  matching:number;
+  class: string;
 
   constructor(id, position, employeeId, match){
     this.id = id;
     this.position = position;
     this.employeeId = employeeId;
-    this.match = match;
-  }
-
-  constructor(id, layout){
-    this.id = id;
-    this.layout = layout;
+    this.matching = match;
   }
 }
