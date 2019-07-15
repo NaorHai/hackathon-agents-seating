@@ -14,4 +14,8 @@ export class AppComponent {
       this.seats.push({});
     }
   }
+
+  clearAll() {
+    this.seats = [];
+  }
 }
