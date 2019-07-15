@@ -8,14 +8,14 @@ import {ColorService} from '../color.service';
 })
 export class SeatComponent implements OnInit {
 
-  @Input() match: number;
-  @Input() id: number;
+  @Input() matching: number;
+  @Input() seatId: number;
   class: string;
 
-  constructor(private colorService: ColorService) { }
+  constructor(private colorService: ColorService){}
 
   ngOnInit() {
-    this.class = this.colorService.getColor(this.match)
+    this.class = this.colorService.getColor(this.matching)
 
   }
 

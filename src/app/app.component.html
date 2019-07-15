@@ -1,5 +1,9 @@
-<app-seat [id]="1" [match]="0"></app-seat>
-<app-seat [id]="2" [match]="30"></app-seat>
-<app-seat [id]="3" [match]="50"></app-seat>
-<app-seat [id]="4" [match]="80"></app-seat>
-<app-seat [id]="5" [match]="90"></app-seat>
+<div>
+  <button class="btn" (click)="addSeat()">add seat</button>
+  <input type="text" [(ngModel)]="amount">
+</div>
+<div class="grid">
+  <div class="seats" *ngFor="let s of seats; index as idx">
+    <app-seat [seatId]="idx" [matching]="-1"></app-seat>
+  </div>
+</div>
