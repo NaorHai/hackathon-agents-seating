@@ -1,2 +1,8 @@
-<app-seat [id]="1" [match]="20"></app-seat>
-<app-seat [id]="11" [match]="50"></app-seat>
+<div>
+  <button class="btn" (click)="addSeat()">add seat</button>
+</div>
+<div class="grid">
+  <div class="seats" *ngFor="let s of seats; index as idx">
+    <app-seat [seatId]="idx" [matching]="-1"></app-seat>
+  </div>
+</div>

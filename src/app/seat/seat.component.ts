@@ -7,8 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SeatComponent implements OnInit {
 
-  @Input() match: number;
-  @Input() id: number;
+  @Input() matching: number;
+  @Input() seatId: number;
 
   constructor() { }
 

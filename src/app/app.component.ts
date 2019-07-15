@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hackathon-agents-seating';
+  seats = [];
+
+  addSeat() {
+    this.seats.push({});
+  }
 }
