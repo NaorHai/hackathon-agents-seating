@@ -10,12 +10,13 @@ export class SeatComponent implements OnInit {
 
   @Input() matching: number;
   @Input() seatId: number;
+  employeeId:string;
   class: string;
 
   constructor(private colorService: ColorService){}
 
   ngOnInit() {
-    this.class = this.colorService.getColor(this.matching)
+    this.class = this.colorService.getColor(this.matching, this.employeeId)
 
   }
 
