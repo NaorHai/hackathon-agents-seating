@@ -4,7 +4,10 @@
   <input type="number" [(ngModel)]="amount">
 </div>
 <div class="grid">
-  <div class="seats" *ngFor="let s of seats; index as idx">
-    <app-seat [seatId]="idx+1" [matching]="60"></app-seat>
+ 
+  <div class="seats">
+    <app-seat [seats]="seats" [matching]="60"></app-seat>
   </div>
+
+  <button mat-button (click)="save()">save</button>
 </div>

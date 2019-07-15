@@ -11,11 +11,15 @@ export class AppComponent {
 
   addSeat() {
     for (let i = 0; i < this.amount; i++) {
-      this.seats.push({});
+      this.seats.push({x:0, y:0});
     }
   }
 
   clearAll() {
     this.seats = [];
+  }
+
+  save(){
+    console.log(this.seats);
   }
 }
