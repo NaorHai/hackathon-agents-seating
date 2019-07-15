@@ -7,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   seats = [];
+  amount = 1;
 
   addSeat() {
-    this.seats.push({});
+    for (let i = 0; i < this.amount; i++) {
+      this.seats.push({});
+    }
   }
 }
