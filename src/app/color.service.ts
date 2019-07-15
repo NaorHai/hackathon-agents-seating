@@ -8,7 +8,7 @@ export class ColorService {
 
   constructor() {}
 
-  getColor(match) {
+  getColor(match) : string{
     if (match > 90)
       return "match_Level_90";
     else if (match > 80)
