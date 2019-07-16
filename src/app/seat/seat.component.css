@@ -53,8 +53,7 @@
   text-align: center;
   /* background: #fff; */
   border-radius: 4px;
-  margin-right: 25px;
-  position: relative;
+  position: absolute;
   z-index: 1;
   box-sizing: border-box;
   padding: 10px;
@@ -71,6 +70,7 @@
 }
 
 .example-boundary {
+  position: relative;
   width: 1400px;
   height: 700px;
   max-width: 100%;

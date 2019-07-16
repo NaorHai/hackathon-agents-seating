@@ -1,0 +1,12 @@
+<div>
+  <button mat-button (click)="clearAll()">clear seats</button>
+  <button mat-button (click)="addSeat()">add seat</button>
+  <input type="number" [(ngModel)]="amount">
+</div>
+  <div class="grid">
+  <app-seat [seats]="seats" [matching]="0"></app-seat>
+</div>
+<div>
+  <button mat-button (click)="save()">Save</button>
+</div>
+

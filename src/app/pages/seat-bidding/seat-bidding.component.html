@@ -1,4 +1,3 @@
-<button mat-button (click)="layoutService.save(seats)">Save</button>
 <ng-template #popContent>Hello, <b>Vital</b>!</ng-template>
 <ng-template #popTitle>Fancy <b>content!!</b></ng-template>
 <div class="seat-bidding">
@@ -8,13 +7,14 @@
     triggers="mouseenter:mouseleave"
     [ngbPopover]="popContent"
     [popoverTitle]="popTitle"
-    *ngFor="let seat of seats"
+    *ngFor="let seat of seats; let i = index"
     ngClass="{{seat.class}}"
     [ngStyle]="{
-      'top': seat.position.y + 'px',
-      'left': seat.position.x + 'px'
+      'top.px': seat.position.y,
+      'left.px': seat.position.x
     }"
     (click)="selectSeat(seat)">
-    <span>{{seat.id}}</span>
+    <span>{{seat.matching && seat.matching+'%'}}</span>
   </div>
 </div>
+<button mat-button (click)="layoutService.save(seats)">Save</button>

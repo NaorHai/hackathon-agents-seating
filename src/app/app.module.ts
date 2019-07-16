@@ -11,9 +11,10 @@ import {FormsModule} from '@angular/forms';
 import { SeatBiddingComponent } from './pages/seat-bidding/seat-bidding.component';
 import { RouterModule, Routes } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SeatDesignerComponent } from './pages/seat-desginer/seat-designer.component';
 
 const appRoutes: Routes = [
-  { path: 'designer', component: SeatComponent },
+  { path: 'designer', component: SeatDesignerComponent },
   { path: 'seatBidding', component: SeatBiddingComponent },
   { path: '',
     redirectTo: '/seatBidding',
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     SeatComponent,
-    SeatBiddingComponent
+    SeatBiddingComponent,
+    SeatDesignerComponent
   ],
   imports: [
     BrowserModule,
