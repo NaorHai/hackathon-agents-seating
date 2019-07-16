@@ -14,8 +14,8 @@ export class SeatDesignerComponent {
 
   addSeat() {
     let position = {x:0, y: 0};
-    let emploeey = {id: undefined,name: undefined, image: undefined};
-    this.seats.push(new Seat(this.seats.length+1, position , emploeey, undefined));
+    let employee = {id: undefined,name: undefined, image: undefined};
+    this.seats.push(new Seat(this.seats.length+1, position , employee, undefined));
 
   }
 
