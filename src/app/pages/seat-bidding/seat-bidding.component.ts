@@ -12,8 +12,8 @@ export class SeatBiddingComponent implements OnInit {
 
   seats: Seat[] = [];
   isSelected = false;
-  popContent:String;
-  popTitle:String;
+  popContent:any;
+  popTitle:any;
 
   constructor(
     private layoutService: LayoutService,
@@ -35,20 +35,26 @@ export class SeatBiddingComponent implements OnInit {
     });
   }
 
+  changePopContent(seat){
+    this.popContent = seat.id;
+  }
+
   selectSeat(seat) {
-    if (this.isSelected) {
-      if (seat.selected) {
-        seat.selected = false;
-        seat.employeeId = seat.employeeId ? undefined : '1';
-        seat.class = this.colorService.getColor(seat.matching, seat.employeeId);
-        this.isSelected = false;
+    if (seat.class != "unavailable") {
+      if (this.isSelected) {
+        if (seat.selected) {
+          seat.selected = false;
+          seat.employeeId = seat.employeeId ? undefined : '1';
+          seat.class = this.colorService.getColor(seat.matching, seat.employeeId);
+          this.isSelected = false;
+        }
       }
-    }
-    else {
-      this.isSelected = true;
-      seat.selected = true;
-      seat.employeeId = '1';
-      seat.class = 'selected-seat';
+      else {
+        this.isSelected = true;
+        seat.selected = true;
+        seat.employeeId = '1';
+        seat.class = 'selected-seat';
+      }
     }
   }
 }

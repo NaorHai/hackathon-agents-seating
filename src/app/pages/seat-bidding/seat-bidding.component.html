@@ -1,7 +1,7 @@
 <button mat-button (click)="save()">Save</button>
-<ng-template #popContent>Hello, <b>Vital</b>!</ng-template>
-<ng-template #popTitle>Fancy <b>content!!</b></ng-template>
 <div class="seat-bidding">
+  <ng-template #popContent>{{popContent}}</ng-template>
+  <ng-template #popTitle>{{popTitle}}</ng-template>
   <div
     class="seat btn btn-outline-secondary mr-2"
     placement="auto"
@@ -14,8 +14,9 @@
       'top.px': seat.position.y,
       'left.px': seat.position.x
     }"
+    (mouseenter)="changePopContent(seat)"
     (click)="selectSeat(seat)">
-    <span>{{seat.matching && seat.matching+'%'}}</span>
+    <span>{{seat.id}}</span>
   </div>
 </div>
 <button mat-button (click)="save()">Save</button>
