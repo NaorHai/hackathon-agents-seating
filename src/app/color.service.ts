@@ -22,6 +22,8 @@ export class ColorService {
       return "match_Level_40";
     else if (match > 20)
       return "match_Level_20";
+    else if (match > 0)
+      return "match_Level_0";
     else
       return "unavailable";
   }

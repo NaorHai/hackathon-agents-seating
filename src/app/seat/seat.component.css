@@ -23,8 +23,12 @@
   margin: 0 auto;
 }
 
-.match_Level_20{
+.match_Level_0{
   background: #ccffdd;
+}
+
+.match_Level_20{
+  background: #aaffc6;
 }
 
 .match_Level_40{
