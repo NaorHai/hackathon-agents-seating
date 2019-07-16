@@ -31,7 +31,6 @@ export class Seat {
   id:number;
   position:Position;
   employeeId:string;
-  employeeName:string;
   matching:number;
   class: string;
   employee: Employee;
