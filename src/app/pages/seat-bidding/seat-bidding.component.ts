@@ -36,7 +36,7 @@ export class SeatBiddingComponent implements OnInit {
   }
 
   changePopContent(seat){
-    this.popContent = seat.id;
+    this.popContent = seat.employee.id;
   }
 
   selectSeat(seat) {
