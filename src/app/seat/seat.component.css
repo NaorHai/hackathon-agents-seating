@@ -10,7 +10,14 @@
   padding: 20px;
   margin: 5px;
   float: left;
+  -webkit-animation-name: fill;
+  -webkit-animation-duration: 2s;
 }
+
+@keyframes fill {
+  from {background-color: #fff;}
+}
+
 .content {
   display: inline-block;
   margin: 0 auto;

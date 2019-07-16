@@ -12,12 +12,23 @@ export class SeatBiddingComponent implements OnInit {
 
   seats: Seat[] = [];
   isSelected = false;
+  popContent:String;
+  popTitle:String;
 
   constructor(
     private layoutService: LayoutService,
     private colorService: ColorService) { }
 
   ngOnInit() {
+    this.load()
+  }
+
+  save(){
+    this.layoutService.save(this.seats);
+    this.load()
+  }
+
+  load(){
     this.seats = this.layoutService.load();
     this.seats.forEach(seat => {
       seat.class = this.colorService.getColor(seat.matching, seat.employeeId);
