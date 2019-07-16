@@ -9,25 +9,37 @@ export class Position{
 
 }
 
+export class Employee{
+  id:string;
+  name:string;
+  image:string;
+
+  constructor(id, name, url){
+    this.id = id;
+    this.name = name;
+    this.image = url;
+  }
+
+  setUserDetails(id, name, url){
+    if(id && !this.id) this.id = id;
+    if(name && !this.name) this.name = name;
+    if(url && !this.image) this.image = url;
+  }
+}
+
 export class Seat {
   id:number;
   position:Position;
   employeeId:string;
-  employeeName:string;
   matching:number;
   class: string;
+  employee: Employee;
 
-  constructor(id, position, employeeId, match, employeeName){
+  constructor(id, position, employee, match){
     this.id = id;
     this.position = position;
-    this.employeeId = employeeId;
     this.matching = match;
-    this.employeeName = employeeName;
-  }
-
-  setEmployee(id:string, name:string){
-    this.employeeId = id;
-    this.employeeName = name;
+    this.employee = employee
   }
 
   setPosition(x:number, y:number){

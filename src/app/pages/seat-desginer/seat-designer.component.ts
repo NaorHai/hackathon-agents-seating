@@ -13,7 +13,9 @@ export class SeatDesignerComponent {
   constructor(private layoutService: LayoutService) {}
 
   addSeat() {
-    this.seats.push(new Seat(this.seats.length+1, {x:this.seats.length*10, y: 0}, undefined, undefined, undefined));
+    let position = {x:0, y: 0};
+    let employee = {id: undefined,name: undefined, image: undefined};
+    this.seats.push(new Seat(this.seats.length+1, position , employee, undefined));
 
   }
 
@@ -25,4 +27,5 @@ export class SeatDesignerComponent {
     this.layoutService.save(this.seats);
     console.log(this.seats);
   }
+
 }
