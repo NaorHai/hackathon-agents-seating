@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Position, Seat} from '../classes/seat';
+import {elementEventFullName} from '@angular/compiler/src/view_compiler/view_compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +16,15 @@ export class LayoutService {
       rawSeats.forEach(seat => this.layout.push(new Seat(seat.id,
         new Position(seat.position.x, seat.position.y),
         seat.employeeId,
-        seat.matching)));
+        seat.matching,
+        seat.employeeName)));
     }
     else {
       this.layout = [
-        new Seat(1, new Position(0,0), undefined, 50),
-        new Seat(1, new Position(50,50), "1", undefined),
-        new Seat(1, new Position(75,75), undefined, 75),
-        new Seat(1, new Position(90,90), "2", undefined),
+        new Seat(1, new Position(0,0), undefined, 50, undefined),
+        new Seat(1, new Position(50,50), "1", undefined, undefined),
+        new Seat(1, new Position(75,75), undefined, 75, undefined),
+        new Seat(1, new Position(90,90), "2", undefined, undefined),
       ]
     }
   }
@@ -32,7 +34,17 @@ export class LayoutService {
   }
 
   load():Seat[]{
+    this.getMatchCase();
     return this.layout;
+  }
+
+  getMatchCase(){
+    if( this.layout.find(i => i.matching !== undefined)) return;
+    let amount = Math.floor(this.layout.length*0.70);
+    for(let i=0; i<amount; i++){
+      this.layout[i].matching = this.getRandomMatch();
+    }
+    this.save(this.layout)
   }
 
   getRandomMatch(): number{
