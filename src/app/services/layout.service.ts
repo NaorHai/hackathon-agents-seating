@@ -11,7 +11,7 @@ export class LayoutService {
   constructor(private api: ApiService) {
     let rawSeats:any[] = JSON.parse(localStorage.getItem('layout'));
 
-    if (rawSeats) {
+    if (rawSeats && rawSeats.length > 0) {
       let random_boolean = Math.random() >= 0.5;
       rawSeats.forEach(seat => this.layout.push(new Seat(seat.id,
         new Position(seat.position.x, seat.position.y),
