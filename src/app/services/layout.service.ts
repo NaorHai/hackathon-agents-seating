@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Position, Seat} from '../classes/seat';
-import {elementEventFullName} from '@angular/compiler/src/view_compiler/view_compiler';
+import {Position, Seat, Employee} from '../classes/seat';
+import {ApiService} from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +8,22 @@ import {elementEventFullName} from '@angular/compiler/src/view_compiler/view_com
 export class LayoutService {
 
   layout:Seat[] = [];
-  constructor() {
+  constructor(private api: ApiService) {
     let rawSeats:any[] = JSON.parse(localStorage.getItem('layout'));
 
     if (rawSeats) {
       let random_boolean = Math.random() >= 0.5;
       rawSeats.forEach(seat => this.layout.push(new Seat(seat.id,
         new Position(seat.position.x, seat.position.y),
-        seat.employeeId,
-        seat.matching,
-        seat.employeeName)));
+        new Employee(undefined, undefined, undefined),
+        seat.matching)));
     }
     else {
       this.layout = [
-        new Seat(1, new Position(0,0), undefined, 50, undefined),
-        new Seat(1, new Position(50,50), "1", undefined, undefined),
-        new Seat(1, new Position(75,75), undefined, 75, undefined),
-        new Seat(1, new Position(90,90), "2", undefined, undefined),
+        new Seat(1, new Position(0,0), new Employee(undefined, undefined, undefined), 50),
+        new Seat(1, new Position(50,50), new Employee(undefined, undefined, undefined), undefined),
+        new Seat(1, new Position(75,75), new Employee(undefined, undefined, undefined), 75),
+        new Seat(1, new Position(90,90), new Employee(undefined, undefined, undefined), undefined),
       ]
     }
   }

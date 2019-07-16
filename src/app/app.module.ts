@@ -1,5 +1,6 @@
 // @ts-ignore
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 // @ts-ignore
 import { NgModule } from '@angular/core';
 import {DragDropModule} from '@angular/cdk/drag-drop'
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     NgbModule,
     DragDropModule,
     NoopAnimationsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
