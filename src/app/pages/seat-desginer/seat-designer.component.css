@@ -1,14 +1,26 @@
 .seat-designer{
   position: relative;
-  width: 1200px;
-  height: 700px;
+  width: 800px;
+  height: 500px;
 }
 
 .saveButton{
-  margin-right: 100px;
+  top: 10px;
+  right: 100px;
+}
+
+.addButton{
+  top: 10px;
+  right: 165px;
+}
+
+.clearButton{
+  top: 10px;
+  right: 230px;
 }
 
 button{
+  z-index: 1000;
   margin: 5px;
-  float: right;
+  position: absolute;
 }
