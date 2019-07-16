@@ -14,6 +14,7 @@ export class SeatBiddingComponent implements OnInit {
   isSelected = false;
   popContent:any;
   popTitle:any;
+  popImage: string;
 
   constructor(
     private layoutService: LayoutService,
@@ -31,12 +32,23 @@ export class SeatBiddingComponent implements OnInit {
   load(){
     this.seats = this.layoutService.load();
     this.seats.forEach(seat => {
-      seat.class = this.colorService.getColor(seat.matching, seat.employeeId);
+      seat.class = this.colorService.getColor(seat.matching, seat.employee);
     });
   }
 
   changePopContent(seat){
-    this.popContent = seat.employee.id;
+    console.log(seat);
+    if(seat.employee && seat.employee.id){
+      this.popContent = seat.employee.name;
+      this.popImage = seat.employee.image;
+      this.popTitle = 'This seat has been taken';
+    }
+    else {
+      this.popTitle = 'This seat is available';
+      this.popContent = 'Matching: ' + seat.matching + '%';
+      this.popImage = undefined;
+    }
+
   }
 
   selectSeat(seat) {
@@ -44,15 +56,15 @@ export class SeatBiddingComponent implements OnInit {
       if (this.isSelected) {
         if (seat.selected) {
           seat.selected = false;
-          seat.employeeId = seat.employeeId ? undefined : '1';
-          seat.class = this.colorService.getColor(seat.matching, seat.employeeId);
+          seat.employee.clearEmployee();
+          seat.class = this.colorService.getColor(seat.matching, seat.employee);
           this.isSelected = false;
         }
       }
       else {
         this.isSelected = true;
         seat.selected = true;
-        seat.employeeId = '1';
+        seat.employee.setUserDetails(100,'Yoav Alroy',"https://media.licdn.com/dms/image/C4E03AQHuHgzPai4EzA/profile-displayphoto-shrink_200_200/0?e=1568246400&v=beta&t=gC3gcbJEjMlMQgrT32gePQlZ499icBf7mRABaV_H0PA");
         seat.class = 'selected-seat';
       }
     }

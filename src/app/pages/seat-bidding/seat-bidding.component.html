@@ -1,14 +1,19 @@
 
 <button mat-button class="btn btn-primary save-button" (click)="save()">Save</button>
 <div class="seat-bidding">
-  <ng-template #popContent>{{popContent}}</ng-template>
-  <ng-template #popTitle>{{popTitle}}</ng-template>
+  <ng-template #popContenElementt>
+    <img *ngIf="popImage" [src]="popImage" style="border-radius: 50%; display: inline-block; margin-right: 15px; width: 48px; height: 48px"/>
+    {{popContent}}
+  </ng-template>
+  <ng-template #popTitleElement>
+    {{popTitle}}
+  </ng-template>
   <div
     class="seat btn btn-outline-secondary mr-2"
     placement="auto"
     triggers="mouseenter:mouseleave"
-    [ngbPopover]="popContent"
-    [popoverTitle]="popTitle"
+    [ngbPopover]="popContenElementt"
+    [popoverTitle]="popTitleElement"
     *ngFor="let seat of seats; let i = index"
     ngClass="{{seat.class}}"
     [ngStyle]="{

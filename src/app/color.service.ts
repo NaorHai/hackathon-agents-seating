@@ -9,7 +9,7 @@ export class ColorService {
   constructor() {}
 
   getColor(match, employee) : string{
-    if (employee)
+    if (employee && employee.id)
       return "unavailable";
 
     if (match > 90)

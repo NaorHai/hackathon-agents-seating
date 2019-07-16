@@ -25,12 +25,17 @@ export class Employee{
     if(name && !this.name) this.name = name;
     if(url && !this.image) this.image = url;
   }
+
+  clearEmployee(){
+    this.id = undefined;
+    this.name = undefined;
+    this.image = undefined;
+  }
 }
 
 export class Seat {
   id:number;
   position:Position;
-  employeeId:string;
   matching:number;
   class: string;
   employee: Employee;
@@ -39,7 +44,7 @@ export class Seat {
     this.id = id;
     this.position = position;
     this.matching = match;
-    this.employee = employee
+    this.employee = employee;
   }
 
   setPosition(x:number, y:number){

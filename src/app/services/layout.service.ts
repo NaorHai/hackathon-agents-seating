@@ -15,7 +15,7 @@ export class LayoutService {
       let random_boolean = Math.random() >= 0.5;
       rawSeats.forEach(seat => this.layout.push(new Seat(seat.id,
         new Position(seat.position.x, seat.position.y),
-        new Employee(undefined, undefined, undefined),
+        new Employee(seat.employee && seat.employee.id, seat.employee && seat.employee.name,seat.employee && seat.employee.image),
         seat.matching)));
     }
     else {
@@ -27,7 +27,8 @@ export class LayoutService {
             "y":350
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":2,
@@ -36,7 +37,8 @@ export class LayoutService {
             "y":350
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":3,
@@ -45,7 +47,8 @@ export class LayoutService {
             "y":260
           },
           "matching":95,
-          "class":"match_Level_90"
+          "class":"match_Level_90",
+          "employee":{}
         },
         {
           "id":4,
@@ -54,7 +57,8 @@ export class LayoutService {
             "y":260
           },
           "matching":95,
-          "class":"match_Level_90"
+          "class":"match_Level_90",
+          "employee":{}
         },
         {
           "id":5,
@@ -63,7 +67,8 @@ export class LayoutService {
             "y":260
           },
           "matching":45,
-          "class":"match_Level_40"
+          "class":"match_Level_40",
+          "employee":{}
         },
         {
           "id":6,
@@ -72,7 +77,8 @@ export class LayoutService {
             "y":260
           },
           "matching":45,
-          "class":"match_Level_40"
+          "class":"match_Level_40",
+          "employee":{}
         },
         {
           "id":7,
@@ -81,7 +87,8 @@ export class LayoutService {
             "y":205
           },
           "matching":95,
-          "class":"match_Level_90"
+          "class":"match_Level_90",
+          "employee":{}
         },
         {
           "id":8,
@@ -89,7 +96,12 @@ export class LayoutService {
             "x":255,
             "y":205
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Edmundo Mata",
+            "id": "11",
+            "image": "https://randomuser.me/api/portraits/thumb/men/52.jpg"
+          }
         },
         {
           "id":9,
@@ -98,7 +110,8 @@ export class LayoutService {
             "y":205
           },
           "matching":45,
-          "class":"match_Level_40"
+          "class":"match_Level_40",
+          "employee":{}
         },
         {
           "id":10,
@@ -107,7 +120,8 @@ export class LayoutService {
             "y":205
           },
           "matching":45,
-          "class":"match_Level_40"
+          "class":"match_Level_40",
+          "employee":{}
         },
         {
           "id":11,
@@ -116,7 +130,8 @@ export class LayoutService {
             "y":405
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":12,
@@ -125,7 +140,8 @@ export class LayoutService {
             "y":405
           },
           "matching":12,
-          "class":"match_Level_0"
+          "class":"match_Level_0",
+          "employee":{}
         },
         {
           "id":13,
@@ -134,7 +150,8 @@ export class LayoutService {
             "y":405
           },
           "matching":12,
-          "class":"match_Level_0"
+          "class":"match_Level_0",
+          "employee":{}
         },
         {
           "id":14,
@@ -143,7 +160,8 @@ export class LayoutService {
             "y":350
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":15,
@@ -152,7 +170,8 @@ export class LayoutService {
             "y":350
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":16,
@@ -161,7 +180,8 @@ export class LayoutService {
             "y":405
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":17,
@@ -170,7 +190,8 @@ export class LayoutService {
             "y":350
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":18,
@@ -179,7 +200,8 @@ export class LayoutService {
             "y":260
           },
           "matching":65,
-          "class":"match_Level_60"
+          "class":"match_Level_60",
+          "employee":{}
         },
         {
           "id":19,
@@ -188,7 +210,8 @@ export class LayoutService {
             "y":260
           },
           "matching":85,
-          "class":"match_Level_80"
+          "class":"match_Level_80",
+          "employee":{}
         },
         {
           "id":20,
@@ -197,7 +220,8 @@ export class LayoutService {
             "y":205
           },
           "matching":65,
-          "class":"match_Level_60"
+          "class":"match_Level_60",
+          "employee":{}
         },
         {
           "id":21,
@@ -206,7 +230,8 @@ export class LayoutService {
             "y":205
           },
           "matching":85,
-          "class":"match_Level_80"
+          "class":"match_Level_80",
+          "employee":{}
         },
         {
           "id":22,
@@ -215,7 +240,8 @@ export class LayoutService {
             "y":405
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":23,
@@ -224,7 +250,8 @@ export class LayoutService {
             "y":405
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":24,
@@ -233,7 +260,8 @@ export class LayoutService {
             "y":350
           },
           "matching":22,
-          "class":"match_Level_20"
+          "class":"match_Level_20",
+          "employee":{}
         },
         {
           "id":25,
@@ -241,7 +269,12 @@ export class LayoutService {
             "x":314,
             "y":90
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Vilma Aro",
+            "id": "1",
+            "image": "https://randomuser.me/api/portraits/thumb/women/38.jpg"
+          }
         },
         {
           "id":26,
@@ -249,7 +282,12 @@ export class LayoutService {
             "x":158,
             "y":90
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Kaylee Horton",
+            "id": "10",
+            "image": "https://randomuser.me/api/portraits/thumb/women/70.jpg"
+          }
         },
         {
           "id":27,
@@ -257,7 +295,12 @@ export class LayoutService {
             "x":265,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Eléna Marchand",
+            "id": "9",
+            "image": "https://randomuser.me/api/portraits/thumb/women/44.jpg"
+          }
         },
         {
           "id":28,
@@ -265,7 +308,12 @@ export class LayoutService {
             "x":210,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Danial Sæland",
+            "id": "8",
+            "image": "https://randomuser.me/api/portraits/thumb/men/50.jpg"
+          }
         },
         {
           "id":29,
@@ -273,7 +321,12 @@ export class LayoutService {
             "x":155,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Daphné Faure",
+            "id": "6",
+            "image": "https://randomuser.me/api/portraits/thumb/women/17.jpg"
+          }
         },
         {
           "id":30,
@@ -281,7 +334,12 @@ export class LayoutService {
             "x":45,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Angelo Wielens",
+            "id": "5",
+            "image": "https://randomuser.me/api/portraits/thumb/men/56.jpg"
+          }
         },
         {
           "id":31,
@@ -289,7 +347,12 @@ export class LayoutService {
             "x":100,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Sofie Muller",
+            "id": "4",
+            "image": "https://randomuser.me/api/portraits/thumb/women/5.jpg"
+          }
         },
         {
           "id":32,
@@ -297,7 +360,12 @@ export class LayoutService {
             "x":430,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Simon Bouchard",
+            "id": "3",
+            "image": "https://randomuser.me/api/portraits/thumb/men/53.jpg"
+          }
         },
         {
           "id":33,
@@ -305,7 +373,12 @@ export class LayoutService {
             "x":375,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Billy Torres",
+            "id": "1",
+            "image": "https://randomuser.me/api/portraits/thumb/men/62.jpg"
+          }
         },
         {
           "id":34,
@@ -313,7 +386,12 @@ export class LayoutService {
             "x":320,
             "y":520
           },
-          "class":"unavailable"
+          "class":"unavailable",
+          "employee": {
+            "name": "Amarildo Da Cunha",
+            "id": "2",
+            "image": "https://randomuser.me/api/portraits/thumb/men/2.jpg"
+          }
         }
       ];
   }}
