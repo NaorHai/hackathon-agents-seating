@@ -1,4 +1,5 @@
 .seat{
+  cursor: pointer !important;
   width: 50px;
   height: 50px;
   color: rgba(0, 0, 0, 0.87);
@@ -6,15 +7,17 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 4px;
+  border-width: 3px;
+  border-radius: 50%;
   position: absolute;
   z-index: 1;
   box-sizing: border-box;
   padding: 10px;
-  animation: fill 2s;
-  -webkit-animation-name: fill;
-  -webkit-animation-duration: 2s;
-
+  animation: fill 0.5s linear;
+  -webkit-animation: fill 0.5s linear;
+  fill: white;
+  background: #5cb85c;
+  transition: 0.5s;
 }
 
 .save-button{
@@ -26,13 +29,21 @@
 }
 
 .seat:hover{
+  background: #0099CC;
+  border-color: #0099CC;
+  fill: white;
     filter:brightness(85%);
 }
 
+.seat:hover svg, .seat svg{
+  transition: none;
+}
+
 @keyframes fill {
-   from{
-     background-color: white;
-   }
+   0%{border-color: #EAF1F7 #EAF1F7 #EAF1F7 #EAF1F7;}
+  25%{border-color: #00C851 #EAF1F7 #EAF1F7 #EAF1F7;}
+  /*50%{border-color: #00C851 #00C851 #EAF1F7 #EAF1F7;}*/
+  /*75%{border-color: #00C851 #00C851 #00C851 #EAF1F7;}*/
 }
 
 .content {
@@ -41,41 +52,67 @@
 }
 
 .match_Level_0{
-  background: #ccffdd;
+  border-color: #EAF1F7 #EAF1F7 #EAF1F7 #EAF1F7;
+  animation: none;
+  -webkit-animation: none;
 }
 
 .match_Level_20{
-  background: #aaffc6;
+  border-color: #EAF1F7 #428bca #EAF1F7 #EAF1F7;
 }
 
 .match_Level_40{
+  border-color: #EAF1F7 #428bca #428bca #EAF1F7;
   cursor: pointer;
-  background: #66ff99;
 }
 
 .match_Level_60{
+  border-color: #EAF1F7 #428bca #428bca #428bca;
   cursor: pointer;
-  background: #1aff66;
+
 }
 
 .match_Level_80{
+  border-color: #428bca #428bca #428bca #428bca;
   cursor: pointer;
-  background: #00cc44;
 }
 
 .match_Level_90{
+  border-radius: 50%;
+  border-color: #428bca #428bca #428bca #428bca;
   cursor: pointer;
-  background: #006622;
   color: #ffffff;
 }
 
-.unavailable{
-  background: #9e9e9e;
+.unavailable , .unavailable:hover{
+  animation: none;
+  -webkit-animation: none;
+  cursor: no-drop;
+  background: orange;
+  border-color: orange;
+  fill: #ededed;
 }
 
 .selected-seat{
   cursor: pointer;
   background: #ffff00;
+  border-color: #ffff00;
+  fill: black;
+}
+
+svg{
+  transition: 0.75s;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+
+.selected-seat:hover{
+  /*transition: inherit;*/
+  background: #ffff00;
+  border-color: #ffff00;
+  fill: black;
 }
 
 .seat-bidding{

@@ -22,6 +22,11 @@
     }"
     (mouseenter)="changePopContent(seat)"
     (click)="selectSeat(seat)">
-    <span>{{seat.id}}</span>
+    <!--<span>{{seat.id}}</span>-->
+    <svg  width="40" height="40" ngClass="{{seat.class}}">
+      <use ng-attr-href="../../assets/application-icons.svg#icon-Headphones"
+           href="../../assets/application-icons.svg#icon-Headphones">
+      </use>
+    </svg>
   </div>
 </div>

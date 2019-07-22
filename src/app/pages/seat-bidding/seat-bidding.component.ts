@@ -69,4 +69,8 @@ export class SeatBiddingComponent implements OnInit {
       }
     }
   }
+
+  getSimilarity(){
+    return 85;
+  }
 }
