@@ -23,10 +23,17 @@
     (mouseenter)="changePopContent(seat)"
     (click)="selectSeat(seat)">
     <!--<span>{{seat.id}}</span>-->
-    <svg  width="40" height="40" ngClass="{{seat.class}}">
+
+    <div  *ngIf="i == 10" style="background-size: 20px 20px;">
+      <img *ngIf="seat.class != 'selected-seat'" width="20px" src="../../../assets/wheelchair.png">
+      <img *ngIf="seat.class == 'selected-seat'" width="20px" src="../../../assets/wheelchair2.png">
+    </div>
+
+    <svg  width="40" height="40" ngClass="{{seat.class}}" *ngIf="i != 10">
       <use ng-attr-href="../../assets/application-icons.svg#icon-Headphones"
            href="../../assets/application-icons.svg#icon-Headphones">
       </use>
     </svg>
+
   </div>
 </div>

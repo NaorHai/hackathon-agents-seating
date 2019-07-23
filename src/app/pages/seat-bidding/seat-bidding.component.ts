@@ -41,10 +41,10 @@ export class SeatBiddingComponent implements OnInit {
     if(seat.employee && seat.employee.id){
       this.popContent = seat.employee.name;
       this.popImage = seat.employee.image;
-      this.popTitle = 'This seat has been taken';
+      this.popTitle = 'Occupied';
     }
     else {
-      this.popTitle = 'This seat is available';
+      this.popTitle = 'Available';
       this.popContent = 'Matching: ' + seat.matching + '%';
       this.popImage = undefined;
     }

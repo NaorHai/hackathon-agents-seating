@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-width: 3px;
+  border-width: 5px;
   border-radius: 50%;
   position: absolute;
   z-index: 1;
@@ -16,7 +16,7 @@
   animation: fill 0.5s linear;
   -webkit-animation: fill 0.5s linear;
   fill: white;
-  background: #5cb85c;
+  background: #53a353;
   transition: 0.5s;
 }
 
@@ -40,10 +40,8 @@
 }
 
 @keyframes fill {
-   0%{border-color: #EAF1F7 #EAF1F7 #EAF1F7 #EAF1F7;}
-  25%{border-color: #00C851 #EAF1F7 #EAF1F7 #EAF1F7;}
-  /*50%{border-color: #00C851 #00C851 #EAF1F7 #EAF1F7;}*/
-  /*75%{border-color: #00C851 #00C851 #00C851 #EAF1F7;}*/
+   0%{border-color: #c2c3c2 #c2c3c2 #c2c3c2 #c2c3c2;}
+  25%{border-color: #2bf22b #c2c3c2 #c2c3c2 #c2c3c2;}
 }
 
 .content {
@@ -52,34 +50,34 @@
 }
 
 .match_Level_0{
-  border-color: #EAF1F7 #EAF1F7 #EAF1F7 #EAF1F7;
+  border-color: #c2c3c2 #c2c3c2 #c2c3c2 #c2c3c2;
   animation: none;
   -webkit-animation: none;
 }
 
 .match_Level_20{
-  border-color: #EAF1F7 #428bca #EAF1F7 #EAF1F7;
+  border-color: #c2c3c2 #2bf22b #c2c3c2 #c2c3c2;
 }
 
 .match_Level_40{
-  border-color: #EAF1F7 #428bca #428bca #EAF1F7;
+  border-color: #c2c3c2 #2bf22b #2bf22b #c2c3c2;
   cursor: pointer;
 }
 
 .match_Level_60{
-  border-color: #EAF1F7 #428bca #428bca #428bca;
+  border-color: #c2c3c2 #2bf22b #2bf22b #2bf22b;
   cursor: pointer;
 
 }
 
 .match_Level_80{
-  border-color: #428bca #428bca #428bca #428bca;
+  border-color: #2bf22b #2bf22b #2bf22b #2bf22b;
   cursor: pointer;
 }
 
 .match_Level_90{
   border-radius: 50%;
-  border-color: #428bca #428bca #428bca #428bca;
+  border-color: #2bf22b #2bf22b #2bf22b #2bf22b;
   cursor: pointer;
   color: #ffffff;
 }
