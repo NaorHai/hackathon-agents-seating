@@ -10,6 +10,7 @@ import {Seat} from '../classes/seat';
 export class SeatComponent implements OnInit {
 
   @Input() matching: number;
+  @Input() addChair: any;
   @Input() seatId: number;
   @Input() seats: Seat[];
   class: string;
@@ -22,16 +23,16 @@ export class SeatComponent implements OnInit {
   }
 
   drop(event: any, i: number){
-    console.log(event);
+    console.log(i);
     let item = this.seats[i];
     let x = event.clientX;
     let y = event.clientY;
+    item.inBoundary = (y > 80);
     item.setPosition(x,y);
-    console.log(item);
+    if(i === 0 ) this.addChair(i);
   }
 
   onDrag(event: any){
-    console.log(event);
     this.positionStart = {
       x : event.offsetX,
       y : event.offsetY

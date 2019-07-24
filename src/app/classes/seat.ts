@@ -39,6 +39,7 @@ export class Seat {
   matching:number;
   class: string;
   employee: Employee;
+  inBoundary: boolean = false;
 
   constructor(id, position, employee, match){
     this.id = id;
