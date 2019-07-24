@@ -27,7 +27,7 @@ export class SeatComponent implements OnInit {
     let item = this.seats[i];
     let x = event.clientX;
     let y = event.clientY;
-    item.inBoundary = (y > 80);
+    item.inBoundary = (y > 99);
     item.setPosition(x,y);
     if(i === 0 ) this.addChair(i);
   }

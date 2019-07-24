@@ -9,6 +9,7 @@ import {LayoutService} from '../../services/layout.service';
 })
 export class SeatDesignerComponent {
   seats: Seat[] = [];
+  enableOptions: boolean = false;
 
   constructor(private layoutService: LayoutService) {
     let position = {x:0, y: 0};
@@ -17,9 +18,7 @@ export class SeatDesignerComponent {
   }
 
   addSeat() {
-    let position = {x:0, y: 0};
-    let employee = {id: undefined,name: undefined, image: undefined};
-    this.seats.push(new Seat(this.seats.length+1, position , employee, undefined));
+    this.enableOptions = !this.enableOptions;
   }
 
   addChair(i: number){

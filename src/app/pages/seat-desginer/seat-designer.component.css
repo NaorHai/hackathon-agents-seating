@@ -24,3 +24,45 @@ button{
   margin: 5px;
   position: absolute;
 }
+
+.add-options{
+  z-index: 1000;
+  position: absolute;
+  top:60px;
+  right: 100px;
+  animation: showOptions 0.25s linear;
+  transition: 2s;
+}
+
+@keyframes showOptions {
+  from{
+    opacity: 0;
+    top: 10px;
+  }
+  to{
+    top: 60px;
+  }
+}
+
+.add-options img{
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 10px;
+  animation: buttonOprionAnimation 0.2s linear;
+}
+.add-options img:hover{
+  -webkit-box-shadow: -2px 2px 20px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 2px 20px 0px rgba(0,0,0,0.75);
+  box-shadow: -2px 2px 20px 0px rgba(0,0,0,0.75);
+}
+
+@keyframes buttonOprionAnimation {
+  from{
+    right: 100px;
+  }
+}
+
+.change-seat{
+  z-index: 1000;
+  cursor: pointer;
+}
