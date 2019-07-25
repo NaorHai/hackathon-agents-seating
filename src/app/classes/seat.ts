@@ -8,7 +8,17 @@ export class Position{
   }
 
 }
+export class Person {
+  email:string;
+  name:string;
+  picture: string;
 
+  constructor(obj){
+    this.email = obj.email;
+    this.name = obj.name.first + ' ' + obj.name.last;
+    this.picture = obj.picture.thumbnail;
+  }
+}
 export class Employee{
   id:string;
   name:string;

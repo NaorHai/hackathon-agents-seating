@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {LayoutService} from '../../services/layout.service';
-import {Seat} from '../../classes/seat';
+import {Person, Seat} from '../../classes/seat';
 import {ColorService} from '../../color.service';
+import {Observable, Subject} from 'rxjs';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-seat-bidding',
@@ -15,13 +17,21 @@ export class SeatBiddingComponent implements OnInit {
   popContent:any;
   popTitle:any;
   popImage: string;
+  private person: Person;
+
 
   constructor(
     private layoutService: LayoutService,
-    private colorService: ColorService) { }
+    private colorService: ColorService,
+    ) { }
 
   ngOnInit() {
     this.load()
+    this.layoutService.getPersonSubject()
+      .subscribe(result => {
+        console.log(result);
+        this.person = result;
+      })
   }
 
   save(){
@@ -37,16 +47,25 @@ export class SeatBiddingComponent implements OnInit {
   }
 
   changePopContent(seat){
-    console.log(seat);
+
     if(seat.employee && seat.employee.id){
       this.popContent = seat.employee.name;
       this.popImage = seat.employee.image;
       this.popTitle = 'Occupied';
     }
     else {
-      this.popTitle = 'Available';
-      this.popContent = 'Matching: ' + seat.matching + '%';
-      this.popImage = undefined;
+      if(!seat.matching){
+        this.layoutService.getPersonDetails()
+          .then(()=> {
+            seat.employee.setUserDetails(15,this.person.name, this.person.picture);
+            this.changePopContent(seat);
+          });
+      }
+      else{
+        this.popTitle = 'Available';
+        this.popContent = 'Matching: ' + seat.matching + '%';
+        this.popImage = undefined;
+      }
     }
 
   }
@@ -69,6 +88,7 @@ export class SeatBiddingComponent implements OnInit {
       }
     }
   }
+
 
   getSimilarity(){
     return 85;

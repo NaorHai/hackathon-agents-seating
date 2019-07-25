@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Position, Seat, Employee } from '../classes/seat';
 import { ApiService } from './api.service';
 import { initLayout }from '../../assets/mockInitLayout';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ import { initLayout }from '../../assets/mockInitLayout';
 export class LayoutService {
 
   layout: any = [];
+  private personSubject = new Subject<any>();
+
   constructor(private api: ApiService) {
     let rawSeats:any[] = JSON.parse(localStorage.getItem('layout'));
     (rawSeats && rawSeats.length > 0) ? this.initSeats(rawSeats): this.initSeats(initLayout);
@@ -44,6 +47,21 @@ export class LayoutService {
 
   getRandomMatch(): number{
     return Math.floor(Math.random() * 100) + 1;
+  }
+
+  getPersonSubject(){
+    return this.personSubject.asObservable();
+  }
+
+  getPersonDetails(){
+    return new Promise( res =>{
+      const sub = this.api.generateUserDetails(1).subscribe((val) => {
+        this.personSubject.next(val);
+        sub.unsubscribe();
+        res();
+      })
+    })
+
   }
 
 }
