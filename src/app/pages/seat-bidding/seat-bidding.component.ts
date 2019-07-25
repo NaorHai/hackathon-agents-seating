@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LayoutService} from '../../services/layout.service';
 import {Seat} from '../../classes/seat';
 import {ColorService} from '../../color.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-seat-bidding',
@@ -15,6 +16,7 @@ export class SeatBiddingComponent implements OnInit {
   popContent:any;
   popTitle:any;
   popImage: string;
+  sub: Subscription
 
   constructor(
     private layoutService: LayoutService,
@@ -22,6 +24,9 @@ export class SeatBiddingComponent implements OnInit {
 
   ngOnInit() {
     this.load()
+    this.sub = this.layoutService.getPerson().subscribe((res) => {
+      console.log(res);
+    });
   }
 
   save(){
@@ -38,6 +43,7 @@ export class SeatBiddingComponent implements OnInit {
 
   changePopContent(seat){
     console.log(seat);
+    this.layoutService.getPersonDetails();
     if(seat.employee && seat.employee.id){
       this.popContent = seat.employee.name;
       this.popImage = seat.employee.image;
