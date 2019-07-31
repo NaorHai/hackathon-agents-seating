@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Position, Seat, Employee } from '../classes/seat';
 import { ApiService } from './api.service';
 import { initLayout }from '../../assets/mockInitLayout';
-import {Subject} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ export class LayoutService {
 
   layout: any = [];
   private personSubject = new Subject<any>();
+  private  sub : Subscription;
+  private
 
   constructor(private api: ApiService) {
     let rawSeats:any[] = JSON.parse(localStorage.getItem('layout'));
@@ -55,11 +57,19 @@ export class LayoutService {
 
   getPersonDetails(){
     return new Promise( res =>{
-      const sub = this.api.generateUserDetails(1).subscribe((val) => {
-        this.personSubject.next(val);
-        sub.unsubscribe();
-        res();
-      })
+      this.sub = this.api.generateUserDetails(1)
+        .subscribe(
+          (val)=>{
+            this.personSubject.next(val);
+            res();
+          },
+          (err) => {
+            console.log(err);
+          },
+          ()=> {
+            this.sub.unsubscribe()
+          }
+        );
     })
 
   }

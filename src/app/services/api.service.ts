@@ -4,7 +4,9 @@ import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Person} from '../classes/seat';
 
-
+class Results{
+  results: any[];
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +17,8 @@ export class ApiService {
   generateUserDetails(amount:number): Observable<Person> {
     return this.http.get(`https://randomuser.me/api/?result=${amount}`)
       .pipe(
-        map((res) => {
-          return (new Person(...res.results[0]));
+        map((res:Results) => {
+          return (new Person(res.results[0]));
         })
       );
   }
